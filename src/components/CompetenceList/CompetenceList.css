@@ -1,0 +1,12 @@
+.competencies__list {
+  list-style-type: none;
+  background-color: #1f1f1f;
+  border: 1px solid #999999;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 0;
+}
+
+.competencies__list .competence__card:not(:last-child) {
+  margin-bottom: 10px;
+}

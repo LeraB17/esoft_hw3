@@ -1,0 +1,12 @@
+button.custom__button {
+  width: 100%;
+  font-size: 12pt;
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: 1px solid #999999;
+  background-color: rgb(52, 53, 57);
+  cursor: pointer;
+} 
+button.custom__button:hover {
+    background-color: rgb(59, 61, 67);
+}
