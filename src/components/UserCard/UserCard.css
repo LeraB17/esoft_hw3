@@ -6,7 +6,15 @@
     border-radius: 20px;
     padding: 15px;
 }
+.usercard .wrapper {
+    display: flex;
+}
 .usercard .button {
+    width: 150px;
     display: flex;
     place-items: center;
+}
+.usercard .button:not(:last-child) {
+    margin-right: 10px;
+    width: 200px;
 }

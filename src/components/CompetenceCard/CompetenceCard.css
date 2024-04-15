@@ -19,10 +19,14 @@
     font-size: 16pt;
     font-weight: bolder;
 }
+.competence__card .card__right {
+    display: flex;
+    justify-content: flex-end;
+    min-width: 150px;
+}
 .competence__card .level {
     font-size: 20pt;
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-width: 50px;
+    margin-right: 10px;
 }

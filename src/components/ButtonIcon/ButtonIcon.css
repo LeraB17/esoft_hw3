@@ -1,0 +1,13 @@
+.button__icon {
+    display: flex;
+    place-items: center;
+    font-size: 12pt;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #999999;
+    background-color: rgb(52, 53, 57);
+    cursor: pointer;
+}
+.button__icon:hover {
+    background-color: rgb(59, 61, 67);
+}
