@@ -4,49 +4,49 @@ import CompetenceForm from '#components/CompetenceForm/CompetenceForm';
 import CompetenceList from '#components/CompetenceList/CompetenceList';
 import CompetenceFilters from '#components/CompetenceFilters/CompetenceFilters';
 
-const competence_empty = {
+const competenceEmpty = {
     name: undefined,
     description: undefined,
     level: undefined,
 }
 
-const Competencies = ({ isShowCompetencies, isShowForm, user }) => {
-    const [competencies, setCompetencies] = useState(user?.competencies);
-    const [competenceForm, setCompetenceForm] = useState(competence_empty);
+const Competencies = ({ isShowCompetencies, isShowForm, competencies }) => {
+    const [allCompetencies, setAllCompetencies] = useState(competencies);
+    const [filteredCompetencies, setFilteredCompetencies] = useState(competencies);
+    const [competenceForm, setCompetenceForm] = useState(competenceEmpty);
 
     const filterCompetencies = (comparisson = ">", value = 50) => {
         let newList;
         switch (comparisson) {
             case ">":
-                newList = user?.competencies.filter(c => c.level > value);
+                newList = allCompetencies.filter(c => c.level > value);
                 break;
             case "<":
-                newList = user?.competencies.filter(c => c.level < value);
+                newList = allCompetencies.filter(c => c.level < value);
                 break;
             default:
-                newList = user?.competencies;
+                newList = allCompetencies;
         }
-        setCompetencies(newList);
+        setFilteredCompetencies(newList);
     }
 
     const addCompetence = () => {
         const newCompetence = {
-            "id": user?.competencies.at(-1).id + 1,
+            "id": allCompetencies.at(-1).id + 1,
             "name": competenceForm.name,
             "description": competenceForm.description,
             "level": competenceForm.level
         }
-        user?.competencies.push(newCompetence);
-        setCompetencies(user?.competencies);
-        setCompetenceForm(competence_empty);
+        setAllCompetencies(prev => [...prev, newCompetence]);
+        setFilteredCompetencies([...allCompetencies, newCompetence]);
+        setCompetenceForm(competenceEmpty);
     }
 
     const deleteCompetence = (id) => {
         // удалить глобально
-        user.competencies = user?.competencies.filter(c => c.id != id);
+        setAllCompetencies(prev => prev.filter(c => c.id != id));
         // удалить в отфильтрованном списке
-        const newList = competencies.filter(c => c.id != id);
-        setCompetencies(newList);
+        setFilteredCompetencies(prev => prev.filter(c => c.id != id));
     }
 
     return (
@@ -64,7 +64,7 @@ const Competencies = ({ isShowCompetencies, isShowForm, user }) => {
             {
                 isShowCompetencies ? <>
                     <CompetenceList
-                        competencies={competencies}
+                        competencies={filteredCompetencies}
                         className='block2'
                         onClickDelete={deleteCompetence}
                     />
