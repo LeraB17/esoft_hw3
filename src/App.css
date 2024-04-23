@@ -1,0 +1,22 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.container .block1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.container .block2 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}

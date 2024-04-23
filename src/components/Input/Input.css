@@ -1,0 +1,13 @@
+input.custom__input {
+    width: 100%;
+    font-size: 12pt;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #999999;
+    background-color: rgb(52, 53, 57);
+    margin-top: 5px;
+}
+.custom__input__label {
+    display: block;
+}
