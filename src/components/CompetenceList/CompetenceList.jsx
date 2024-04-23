@@ -4,7 +4,7 @@ import CompetenceCard from '#components/CompetenceCard/CompetenceCard';
 
 const CompetenceList = ({ competencies, className, onClickDelete }) => {
     return (
-        <ul className={['competencies__list', className].join(" ")}>
+        <ul className={`competencies__list ${className}`}>
             {
                 competencies?.map((competence =>
                     <CompetenceCard

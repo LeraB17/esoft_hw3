@@ -42,7 +42,7 @@ function App() {
       <Competencies
         isShowCompetencies={isShowCompetencies}
         isShowForm={isShowForm}
-        user={user}
+        competencies={user.competencies}
       />
     </div>
   )
